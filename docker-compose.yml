@@ -1,0 +1,30 @@
+version: "2"
+services:
+  cassandra1:
+    container_name: cassandra1
+    image: cassandra:latest
+    networks:
+      - cassandra-network
+
+  cassandra2:
+    container_name: cassandra2
+    image: cassandra:latest
+    environment:
+      - CASSANDRA_SEEDS=cassandra1
+    networks:
+      - cassandra-network
+  
+  cassandra3:
+    container_name: cassandra3
+    image: cassandra:latest
+    environment:
+      - CASSANDRA_SEEDS=cassandra1,cassandra2
+    networks:
+      - cassandra-network
+
+networks:
+  cassandra-network:
+    driver: bridge
+
+
+    
