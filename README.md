@@ -1,4 +1,4 @@
-# mulinodeCassandra
+# multiNodeCassandra
 A multinode cassandra cluster using docker compose
 
 Use docker-compose to start the cluster
